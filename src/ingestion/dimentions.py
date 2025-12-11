@@ -7,7 +7,7 @@ import requests
 import dotenv
 import os
 from ..api.client import APIClient
-from ..api.auth import APIKeyAuth
+from ..api.auth import APIAuth
 
 #load .env
 dotenv.load_dotenv()
@@ -19,7 +19,8 @@ ep_submodels = "api/submodels/v2"
 ep_attributes = "api/vehicle-attributes"
 
 #API Authentication
-handler = APIKeyAuth()
+handler = APIAuth()
+print("LOLLOLOLOLOLOLOLOLOLOLOL\n\n\n\n\n\n\nAuth SUCCESS")
 client = APIClient(base_url=os.getenv("API_BASE"), auth_handler=handler)
 
 print(client.base_url)

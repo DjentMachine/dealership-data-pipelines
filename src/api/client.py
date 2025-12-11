@@ -10,9 +10,12 @@ class APIClient:
         self.auth_handler = auth_handler
         self.timeout= timeout
         self.max_retries= max_retries
+        self.jwt = auth_handler.get_jwt()
         
     def get(self, endpoint, params=None):
         #TODO:Lets build the URLs here, add headers and rety logic
+        print(self.jwt)        
+        
         r=requests.get(self.base_url+endpoint,
                      headers = self.auth_handler.get_headers(),
                      params=params)
